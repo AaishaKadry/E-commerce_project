@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<link rel="stylesheet" href="styles.css"> <!-- Assuming CSS is in styles.css -->
+<style>
+/* Additional CSS for the payment form */
+.payment {
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payTitle {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.payInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.cardIcons {
+  margin-bottom: 20px;
+}
+
+.cardIcon {
+  margin-right: 10px;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sm {
+  width: calc(32% - 5px);
+}
+
+.payButton {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payButton:hover {
+  background-color: #45a049;
+}
+
+.close {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #ccc;
+  color: #333;
+  font-size: 18px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="product">
+    <div class="payment">
+        <span class="close">X</span>
+        <h1 class="payTitle">Personal Information</h1>
+        <label for="name">Name and Surname</label>
+        <input type="text" id="name" placeholder="John Doe" class="payInput">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" placeholder="+1 234 5678" class="payInput">
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Elton St 21 22-145" class="payInput">
+        <h1 class="payTitle">Card Information</h1>
+        <div class="cardIcons">
+            <img decoding="async" src="./img/visa.png" width="40" alt="" class="cardIcon">
+            <img decoding="async" src="./img/master.png" alt="" width="40" class="cardIcon">
+        </div>
+        <input type="password" id="cardNumber" class="payInput" placeholder="Card Number">
+        <div class="cardInfo">
+            <input type="text" id="expiryMonth" placeholder="mm" class="payInput sm">
+            <input type="text" id="expiryYear" placeholder="yyyy" class="payInput sm">
+            <input type="text" id="cvv" placeholder="cvv" class="payInput sm">
+        </div>
+        <button class="payButton">Checkout!</button>
+    </div>
+</div>
+
+<script>
+const payment = document.querySelector(".payment");
+const close = document.querySelector(".close");
+
+close.addEventListener("click", () => {
+  payment.style.display = "none";
+});
+
+document.querySelector(".payButton").addEventListener("click", () => {
+  // You can add your order processing logic here
+  // For demonstration, let's show the order placed alert
+  alert("Order placed successfully!");
+
+  // Redirect to the home page after the alert is closed
+  setTimeout(() => {
+    window.location.href = "GlamCart.html"; // Change "index.html" to your home page URL
+  }, 0); // Redirect after 0 milliseconds (immediately after the alert is closed)
+});
+</script>
+</body>
+</html>
